@@ -1,0 +1,26 @@
+#include<iostream>
+using namespace std;
+int main(){
+    int a[] = {10,20,40,70,90,100};
+    int b[] = {30,50,60,80};
+    int m = sizeof(a)/4, n=sizeof(b)/4;
+    int c[m+n];
+    int i=n-1,j=n-1,k=n+n-1;
+    while(i<m && j<n){
+        if(a[i] > b[j]) c[k--] = a[i--];
+        else c[k--] = b[j--];
+    }
+     if(i==m){
+        while(j<n){
+            c[k--] = b[j--];
+        }
+    }
+    else{
+        while(i<m){
+            c[k--] = a[i--];
+        }
+    }
+    for(int i=0; i<m+n; i++){
+        cout << c[k] << " ";
+    }
+}
